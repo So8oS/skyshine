@@ -428,15 +428,13 @@ export default function DroneCanvas() {
       <OrbitControls
         enableZoom={false}
         enablePan={false}
-        minDistance={1.6}
-        maxDistance={1.6}
+        minDistance={1.5}
+        maxDistance={1.5}
         enableRotate={true}
       />
-      <ambientLight intensity={7} />
-
-      <directionalLight intensity={1} position={[5, 5, 5]} />
-      <directionalLight intensity={1} position={[-5, 5, 5]} />
-      <directionalLight intensity={1} position={[0, -5, 5]} />
+      <spotLight intensity={1000} position={[0, 10, 5]} />
+      <spotLight intensity={1000} position={[0, -10, 10]} />
+      <spotLight intensity={1000} position={[-10, 0, 0]} />
       <Model />
     </Canvas>
   );

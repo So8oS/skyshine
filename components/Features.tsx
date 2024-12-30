@@ -49,7 +49,7 @@ function Features() {
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <motion.div
             className="space-y-2"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 1 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.8 }}
           >
@@ -66,7 +66,7 @@ function Features() {
           {featuresList.map((feature) => (
             <motion.div
               key={feature.title}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 1 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: "easeOut", delay: 0.8 }}
             >
