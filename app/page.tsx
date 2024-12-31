@@ -15,6 +15,7 @@ export default function LandingPage() {
       <Hero />
       <Features />
       <HowItWorks />
+
       <Logos />
       <CTASection />
       <BlogSection />
