@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useToast } from "@/hooks/use-toast";
 import emailjs from "@emailjs/browser";
+import { motion } from "motion/react";
 
 interface FormData {
   name: string;
@@ -67,7 +68,13 @@ const ContactForm = () => {
   };
 
   return (
-    <section id="Contact" className="py-8 lg:py-16 px-5 lg:p-0 ">
+    <motion.section
+      id="Contact"
+      className="py-8 lg:py-16 px-5 lg:p-0 "
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
       <h2 className="mb-4 text-3xl md:text-4xl lg:text-5xl tracking-tight font-extrabold text-center text-white">
         Contact Us
       </h2>
@@ -207,7 +214,7 @@ const ContactForm = () => {
           </button>
         </div>
       </form>
-    </section>
+    </motion.section>
   );
 };
 

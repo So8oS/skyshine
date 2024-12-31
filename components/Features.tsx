@@ -49,9 +49,9 @@ function Features() {
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <motion.div
             className="space-y-2"
-            initial={{ opacity: 0, y: 1 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.8 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.6, duration: 0.5 }}
           >
             <h2 className="text-3xl font-bold tracking-tighter text-white sm:text-4xl md:text-5xl">
               Why Choose SkyShine?
@@ -66,9 +66,10 @@ function Features() {
           {featuresList.map((feature) => (
             <motion.div
               key={feature.title}
-              initial={{ opacity: 0, y: 1 }}
+              initial={{ opacity: 0 }}
+              // whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.6, duration: 0.8 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: "easeOut", delay: 0.8 }}
             >
               <Card className="relative overflow-hidden bg-slate-800/50 border-slate-800">
                 <CardContent className="p-6">

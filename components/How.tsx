@@ -1,4 +1,5 @@
 "use client";
+import { motion } from "motion/react";
 
 const steps = [
   {
@@ -23,16 +24,32 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section className="relative  py-10 sm:py-16 lg:py-24">
+    <motion.div
+      id="how"
+      className="relative  py-10 sm:py-16 lg:py-24"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
       <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-4xl text-white font-extrabold mx-auto md:text-6xl lg:text-5xl">
+          <motion.h2
+            className="text-4xl text-white font-extrabold mx-auto md:text-6xl lg:text-5xl"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
             How It Works
-          </h2>
-          <p className="max-w-2xl mx-auto mt-4 text-base text-gray-400 leading-relaxed md:text-2xl">
+          </motion.h2>
+          <motion.p
+            className="max-w-2xl mx-auto mt-4 text-base text-gray-400 leading-relaxed md:text-2xl"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
             A seamless process from start to finish, designed for efficiency and
             excellence
-          </p>
+          </motion.p>
         </div>
 
         <div className="relative mt-12 lg:mt-20">
@@ -49,7 +66,12 @@ export default function HowItWorks() {
 
           <div className="relative grid grid-cols-1 text-center gap-y-12 md:grid-cols-3 gap-x-12">
             {steps.map((step, index) => (
-              <div key={index}>
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.6 + index * 0.2 }}
+              >
                 <div className="flex items-center justify-center w-16 h-16 mx-auto bg-white border-2 border-gray-200 rounded-full shadow">
                   <span className="text-xl font-semibold text-gray-700">
                     {step.number}
@@ -61,7 +83,7 @@ export default function HowItWorks() {
                 <p className="mt-4 text-base text-gray-400 md:text-lg">
                   {step.description}
                 </p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -74,6 +96,6 @@ export default function HowItWorks() {
             "radial-gradient(1.89deg, rgba(34, 78, 95, 0.4) -1000%, rgba(191, 227, 205, 0.26) 1500.74%, rgba(34, 140, 165, 0.41) 56.49%, rgba(28, 47, 99, 0.11) 1150.91%)",
         }}
       />
-    </section>
+    </motion.div>
   );
 }

@@ -1,15 +1,34 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { PiDroneBold } from "react-icons/pi";
 import Link from "next/link";
 import { motion } from "motion/react";
 import CustomDrawer from "./Drawer";
 
 const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <nav
-      className={`px-4 lg:px-6 h-16 flex items-center justify-between mx-auto max-w-screen-2xl w-full relative sticky top-0 z-50 py-2 bg-background/60 backdrop-blur shadow-md`}
+      className={`px-4 lg:px-6 h-16 flex items-center justify-between mx-auto max-w-screen-2xl w-full relative sticky top-0 z-50 py-2 bg-background/60 backdrop-blur shadow-md transition-all duration-500 ${
+        isScrolled ? "bg-slate-900 bg-opacity-90 backdrop-blur-sm" : ""
+      }`}
     >
       <motion.div
         className="flex items-center space-x-4"
@@ -29,17 +48,17 @@ const Navbar = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <Link
+          {/* <Link
             href="/about"
             className="text-sm font-medium hover:text-blue-400 transition-colors text-white"
           >
             About
-          </Link>
+          </Link> */}
           <Link
-            href="/services"
+            href="/gallery"
             className="text-sm font-medium hover:text-blue-400 transition-colors text-white"
           >
-            Services
+            Gallery
           </Link>
           <Link
             href="/contact"

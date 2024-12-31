@@ -2,6 +2,7 @@
 import React from "react";
 import { motion } from "motion/react";
 import DroneCanvas from "./droneModel";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -39,12 +40,15 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.6 }}
           >
-            <button className="inline-block rounded-lg border-none bg-blue-600 text-white font-inherit text-center text-sm shadow-lg w-40 py-2 cursor-pointer hover:bg-blue-700">
-              Download
-            </button>
-            <button className="inline-block rounded-lg border-none bg-white text-blue-600 font-inherit text-center text-sm shadow-lg w-40 py-2 cursor-pointer hover:bg-slate-100">
+            <Link
+              href={"#how"}
+              className="inline-block rounded-lg border-none bg-blue-600 text-white font-inherit text-center text-sm shadow-lg w-40 py-2 cursor-pointer hover:bg-blue-700"
+            >
               Learn More
-            </button>
+            </Link>
+            {/* <button className="inline-block rounded-lg border-none bg-white text-blue-600 font-inherit text-center text-sm shadow-lg w-40 py-2 cursor-pointer hover:bg-slate-100">
+              Learn More
+            </button> */}
           </motion.div>
         </div>
         <motion.div
