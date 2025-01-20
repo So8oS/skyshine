@@ -13,6 +13,10 @@ export default function LandingPage() {
   return (
     <main className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
       <Hero />
+      <iframe
+        src="http://localhost:3000/"
+        className="w-full h-[500px] bg-transparent"
+      ></iframe>
       <Features />
       <HowItWorks />
 
