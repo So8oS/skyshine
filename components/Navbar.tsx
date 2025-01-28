@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { PiDroneBold } from "react-icons/pi";
 import Link from "next/link";
 import { motion } from "motion/react";
-import CustomDrawer from "./Drawer";
+// import CustomDrawer from "./Drawer";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -40,13 +40,13 @@ const Navbar = () => {
             SkyShine
           </span>
         </Link>
-        <ul className="hidden lg:flex gap-4 sm:gap-6">
-          {/* <Link
+        {/* <ul className="hidden lg:flex gap-4 sm:gap-6">
+          <Link
             href="/about"
             className="text-sm font-medium hover:text-blue-400 transition-colors text-white"
           >
             About
-          </Link> */}
+          </Link>
           <Link
             href="/gallery"
             className="text-sm font-medium hover:text-blue-400 transition-colors text-white"
@@ -59,11 +59,11 @@ const Navbar = () => {
           >
             Contact
           </Link>
-        </ul>
+        </ul> */}
       </div>
-      <div className="flex items-center space-x-4 lg:hidden">
+      {/* <div className="flex items-center space-x-4 lg:hidden">
         <CustomDrawer />
-      </div>
+      </div> */}
     </motion.nav>
   );
 };

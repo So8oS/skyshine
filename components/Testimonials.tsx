@@ -36,7 +36,7 @@ const Testimonials = () => {
         {testimonials.map((testimonial, index) => (
           <motion.div
             key={index}
-            className="bg-slate-800 p-6 rounded-lg shadow-lg"
+            className="bg-slate-800 p-6 rounded-xl shadow-lg"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.2 }}

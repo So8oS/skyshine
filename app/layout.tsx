@@ -25,7 +25,7 @@ export default function RootLayout({
         className={`${roboto.variable} ${roboto.variable} flex flex-col  bg-gradient-to-b from-slate-950 to-slate-900 `}
       >
         <Navbar />
-        <div className="min-h-screen  mx-auto max-w-screen-2xl ">
+        <div className="min-h-screen  mx-auto max-w-screen-2xl w-full flex flex-col items-center justify-center ">
           {children}
         </div>
       </body>

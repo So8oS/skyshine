@@ -6,8 +6,8 @@ import Link from "next/link";
 
 const Hero = () => {
   return (
-    <section className="container px-4 md:px-6">
-      <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px] relative">
+    <section className="container px-4 md:px-6 pt-12 md:pt-24">
+      <div className="grid gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_600px] relative">
         <div className="flex flex-col justify-center space-y-4">
           <motion.div
             className="space-y-2"

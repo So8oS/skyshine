@@ -18,7 +18,7 @@ export default function Logos() {
             <img
               key={idx}
               src={`/${logo}`}
-              className="object-contain w-24 lg:w-36 drop-shadow-logo"
+              className="object-contain  w-36 "
               alt={logo}
             />
           ))}

@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import { motion } from "motion/react";
 
@@ -31,7 +32,7 @@ export default function HowItWorks() {
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+      <div className="px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto text-center">
           <motion.h2
             className="text-4xl text-white font-extrabold mx-auto md:text-6xl lg:text-5xl"
@@ -42,7 +43,7 @@ export default function HowItWorks() {
             How It Works
           </motion.h2>
           <motion.p
-            className="max-w-2xl mx-auto mt-4 text-base text-gray-400 leading-relaxed md:text-2xl"
+            className="max-w-2xl  mt-4 text-base text-gray-400 leading-relaxed md:text-2xl"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
@@ -90,7 +91,7 @@ export default function HowItWorks() {
       </div>
 
       <div
-        className="absolute inset-0 m-auto max-w-xs h-[357px] blur-[118px] sm:max-w-md md:max-w-lg"
+        className="absolute inset-0  h-[357px] blur-[118px] sm:max-w-md md:max-w-lg"
         style={{
           background:
             "radial-gradient(1.89deg, rgba(34, 78, 95, 0.4) -1000%, rgba(191, 227, 205, 0.26) 1500.74%, rgba(34, 140, 165, 0.41) 56.49%, rgba(28, 47, 99, 0.11) 1150.91%)",

@@ -35,25 +35,12 @@ export default function CTASection() {
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.6, duration: 0.5 }}
         >
-          <button className="inline-block rounded-lg border-none bg-blue-600 text-white font-inherit text-center text-sm shadow-lg w-40 py-2 cursor-pointer hover:bg-blue-700">
+          <button className="inline-block rounded-xl border-none bg-blue-600 text-white font-inherit text-center text-sm shadow-lg w-40 py-2 cursor-pointer hover:bg-blue-700">
             <Link href="/contact">Contact Us</Link>
           </button>
-          <button className="inline-block rounded-lg border-none bg-white text-blue-600 font-inherit text-center text-sm shadow-lg w-40 py-2 cursor-pointer hover:bg-slate-100">
+          <button className="inline-block rounded-xl border-none bg-white text-blue-600 font-inherit text-center text-sm shadow-lg w-40 py-2 cursor-pointer hover:bg-slate-100">
             <Link href="/#request-quote">Request a Quote</Link>
           </button>
-        </motion.div>
-        <motion.div
-          className="mt-8 text-center"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.8, duration: 0.5 }}
-        >
-          <p className="text-xs sm:text-sm md:text-base text-gray-400">
-            Our services have transformed over 100 buildings worldwide.
-          </p>
-          <p className="text-xs sm:text-sm md:text-base text-gray-400">
-            Join our community of satisfied clients today!
-          </p>
         </motion.div>
       </div>
     </motion.section>

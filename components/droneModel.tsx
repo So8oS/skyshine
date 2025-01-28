@@ -424,7 +424,7 @@ export function Model(props: JSX.IntrinsicElements["group"]) {
 
 export default function DroneCanvas() {
   return (
-    <Canvas className="w-full h-[500px]">
+    <Canvas className="w-full h-[700px]">
       <OrbitControls
         enableZoom={false}
         enablePan={false}

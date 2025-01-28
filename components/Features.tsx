@@ -44,7 +44,7 @@ const featuresList = [
 
 function Features() {
   return (
-    <section className="w-full py-12 md:py-24 lg:py-32 ">
+    <section className="w-full py-12 md:py-24 lg:py-32 self-center flex flex-col items-center justify-center   ">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <motion.div
@@ -77,7 +77,7 @@ function Features() {
                   <h3 className="text-xl font-bold text-white mb-2">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-300">{feature.description}</p>
+                  <p className="text-gray-300 md:h-14">{feature.description}</p>
                 </CardContent>
                 <div className="absolute inset-0 border border-blue-500/20 rounded-lg"></div>
               </Card>

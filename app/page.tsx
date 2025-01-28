@@ -1,32 +1,28 @@
 "use client";
 
 import Features from "../components/Features";
-import CTASection from "../components/CTASection";
 import HowItWorks from "@/components/How";
-import Logos from "@/components/logos";
-import Testimonials from "@/components/Testimonials";
 import BlogSection from "@/components/BlogSection";
 import RequestQuote from "@/components/RequestQuote";
+import GalleryComponent from "@/components/GalleryComponent";
+import Hero from "@/components/Hero";
 
 export default function LandingPage() {
   return (
-    <main className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
-      {/* <Hero /> */}
+    <main className="w-full  ">
       <iframe
         src={
           process.env.NODE_ENV === "development"
-            ? "http://localhost:3000/"
+            ? "http://localhost:3001/"
             : "https://drone-scene-chi.vercel.app/"
         }
-        className="w-full h-[500px] bg-transparent"
+        className="w-full lg:h-[93dvh]  h-[75vh] 3xl:h-[95dvh] "
       ></iframe>
+      <Hero />
       <Features />
       <HowItWorks />
-
-      <Logos />
-      <CTASection />
+      <GalleryComponent />
       <BlogSection />
-      <Testimonials />
       <RequestQuote />
     </main>
   );

@@ -73,7 +73,7 @@ const RequestQuote = () => {
         </motion.p>
         <motion.form
           onSubmit={handleSubmit(onSubmit)}
-          className="max-w-xl mx-auto space-y-6"
+          className="max-w-3xl mx-auto space-y-6"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.6 }}
@@ -81,9 +81,9 @@ const RequestQuote = () => {
           <div>
             <label
               htmlFor="buildingName"
-              className="block mb-2 text-sm font-medium text-white"
+              className="block mb-2 text-sm font-medium text-white text-left pl-1"
             >
-              Building Name
+              Building Name:
             </label>
             <input
               type="text"
@@ -91,7 +91,7 @@ const RequestQuote = () => {
               {...register("buildingName", {
                 required: "Building name is required",
               })}
-              className="block w-full p-2.5 rounded-lg bg-gray-800 text-white border border-gray-600 focus:ring-blue-500 focus:border-blue-500"
+              className="block w-full p-2.5  bg-gray-800 text-white border border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-xl"
               placeholder="e.g., Empire State Building"
             />
             {errors.buildingName && (
@@ -104,9 +104,9 @@ const RequestQuote = () => {
           <div>
             <label
               htmlFor="floors"
-              className="block mb-2 text-sm font-medium text-white"
+              className="block mb-2 text-sm font-medium text-white text-left pl-1"
             >
-              Number of Floors
+              Number of Floors:
             </label>
             <input
               type="number"
@@ -115,7 +115,7 @@ const RequestQuote = () => {
                 required: "Number of floors is required",
                 min: { value: 1, message: "At least 1 floor is required" },
               })}
-              className="block w-full p-2.5 rounded-lg bg-gray-800 text-white border border-gray-600 focus:ring-blue-500 focus:border-blue-500"
+              className="block w-full p-2.5  bg-gray-800 text-white border border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-xl"
               placeholder="e.g., 50"
             />
             {errors.floors && (
@@ -125,41 +125,17 @@ const RequestQuote = () => {
 
           <div>
             <label
-              htmlFor="windowCount"
-              className="block mb-2 text-sm font-medium text-white"
-            >
-              Number of Windows
-            </label>
-            <input
-              type="number"
-              id="windowCount"
-              {...register("windowCount", {
-                required: "Number of windows is required",
-                min: { value: 1, message: "At least 1 window is required" },
-              })}
-              className="block w-full p-2.5 rounded-lg bg-gray-800 text-white border border-gray-600 focus:ring-blue-500 focus:border-blue-500"
-              placeholder="e.g., 200"
-            />
-            {errors.windowCount && (
-              <p className="text-red-500 text-sm">
-                {errors.windowCount.message}
-              </p>
-            )}
-          </div>
-
-          <div>
-            <label
               htmlFor="facadeMaterial"
-              className="block mb-2 text-sm font-medium text-white"
+              className="block mb-2 text-sm font-medium text-white text-left pl-1"
             >
-              Facade Material
+              Facade Material:
             </label>
             <select
               id="facadeMaterial"
               {...register("facadeMaterial", {
                 required: "Facade material is required",
               })}
-              className="block w-full p-2.5 rounded-lg bg-gray-800 text-white border border-gray-600 focus:ring-blue-500 focus:border-blue-500"
+              className="block w-full p-2.5  bg-gray-800 text-white border border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-xl"
             >
               <option value="">Select Material</option>
               <option value="glass">Glass</option>
@@ -177,15 +153,15 @@ const RequestQuote = () => {
           <div>
             <label
               htmlFor="additionalDetails"
-              className="block mb-2 text-sm font-medium text-white"
+              className="block mb-2 text-sm font-medium text-white text-left pl-1"
             >
-              Additional Details (optional)
+              Additional Details (optional):
             </label>
             <textarea
               id="additionalDetails"
               rows={4}
               {...register("additionalDetails")}
-              className="block w-full p-2.5 rounded-lg bg-gray-800 text-white border border-gray-600 focus:ring-blue-500 focus:border-blue-500"
+              className="block w-full p-2.5  bg-gray-800 text-white border border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-xl"
               placeholder="Enter any specific requirements..."
             ></textarea>
           </div>
@@ -193,9 +169,9 @@ const RequestQuote = () => {
           <div>
             <label
               htmlFor="email"
-              className="block mb-2 text-sm font-medium text-white"
+              className="block mb-2 text-sm font-medium text-white text-left pl-1"
             >
-              Email Address
+              Email Address:
             </label>
             <input
               type="email"
@@ -207,7 +183,7 @@ const RequestQuote = () => {
                   message: "Invalid email address",
                 },
               })}
-              className="block w-full p-2.5 rounded-lg bg-gray-800 text-white border border-gray-600 focus:ring-blue-500 focus:border-blue-500"
+              className="block w-full p-2.5  bg-gray-800 text-white border border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-xl"
               placeholder="yourname@example.com"
             />
             {errors.email && (
@@ -217,7 +193,7 @@ const RequestQuote = () => {
 
           <button
             type="submit"
-            className={`w-full py-3 px-4 font-medium rounded-lg text-white ${
+            className={`w-full py-3 px-4 font-medium  text-white rounded-xl ${
               isLoading
                 ? "bg-gray-600 cursor-not-allowed"
                 : "bg-blue-600 hover:bg-blue-700"

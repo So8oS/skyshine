@@ -36,7 +36,7 @@ export const blogPosts = [
 const BlogSection = () => {
   return (
     <motion.section
-      className="py-12 md:py-24 lg:py-32"
+      className="py-12 md:py-24 lg:py-32 rpi"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
@@ -54,7 +54,7 @@ const BlogSection = () => {
           {blogPosts.map((post, index) => (
             <motion.div
               key={post.id}
-              className="bg-slate-800 rounded-lg shadow-lg overflow-hidden"
+              className="bg-slate-800 rounded-xl shadow-lg overflow-hidden "
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 + index * 0.2 }}
