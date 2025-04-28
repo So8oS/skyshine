@@ -1,4 +1,4 @@
-import Metadata from "next";
+import Metadata from "next/types";
 import { Roboto } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
