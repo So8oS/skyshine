@@ -8,7 +8,7 @@ const Hero = () => {
   return (
     <section className="container px-4 md:px-6 pt-12 md:pt-24">
       <div className="grid gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_600px] relative">
-        <div className="flex flex-col justify-center space-y-4">
+        <div className="flex flex-col  space-y-4">
           <motion.div
             className="space-y-2"
             initial={{ opacity: 0, y: 20 }}
@@ -51,32 +51,16 @@ const Hero = () => {
             </button> */}
           </motion.div>
         </div>
-        <motion.div
-          initial={{ opacity: 1, y: "100vh" }}
-          animate={{
-            opacity: 1,
-            y: 0,
-            translateY: [0, -20, 0],
-            rotateY: [0, 10, 0],
-          }}
-          transition={{
-            duration: 10,
-            delay: 0.3,
-            type: "spring",
-            bounce: 0.3,
-            translateY: {
-              duration: 4,
-              repeat: Infinity,
-              ease: "easeInOut",
-            },
-            rotateY: {
-              duration: 5,
-              repeat: Infinity,
-              ease: "easeInOut",
-            },
-          }}
-        >
+        <motion.div className="w-full h-full flex items-center justify-center">
           {/* <DroneCanvas /> */}
+          <iframe
+            src={
+              process.env.NODE_ENV === "development"
+                ? "http://localhost:3002/showcase"
+                : "https://drone-scene-chi.vercel.app/showcase"
+            }
+            className="w-full h-[45vh] xl:h-[50vh]   "
+          ></iframe>
         </motion.div>
       </div>
     </section>

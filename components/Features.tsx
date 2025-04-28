@@ -71,9 +71,9 @@ function Features() {
               transition={{ delay: 0.6, duration: 0.8 }}
               whileInView={{ opacity: 1, y: 0 }}
             >
-              <Card className="relative overflow-hidden bg-slate-800/50 border-slate-800">
+              <Card className="relative overflow-hidden bg-black/80 border-white/30">
                 <CardContent className="p-6">
-                  <feature.icon className="h-12 w-12 text-blue-400 mb-4" />
+                  <feature.icon className="h-12 w-12 text-white/80 mb-4" />
                   <h3 className="text-xl font-bold text-white mb-2">
                     {feature.title}
                   </h3>

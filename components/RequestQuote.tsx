@@ -91,7 +91,7 @@ const RequestQuote = () => {
               {...register("buildingName", {
                 required: "Building name is required",
               })}
-              className="block w-full p-2.5  bg-gray-800 text-white border border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-xl"
+              className="block w-full p-2.5  bg-white  text-black/70 border border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-xl"
               placeholder="e.g., Empire State Building"
             />
             {errors.buildingName && (
@@ -115,7 +115,7 @@ const RequestQuote = () => {
                 required: "Number of floors is required",
                 min: { value: 1, message: "At least 1 floor is required" },
               })}
-              className="block w-full p-2.5  bg-gray-800 text-white border border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-xl"
+              className="block w-full p-2.5  bg-white  text-black/70 border border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-xl"
               placeholder="e.g., 50"
             />
             {errors.floors && (
@@ -135,7 +135,7 @@ const RequestQuote = () => {
               {...register("facadeMaterial", {
                 required: "Facade material is required",
               })}
-              className="block w-full p-2.5  bg-gray-800 text-white border border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-xl"
+              className="block w-full p-2.5  bg-white  text-black/70 border border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-xl cursor-pointer"
             >
               <option value="">Select Material</option>
               <option value="glass">Glass</option>
@@ -161,7 +161,7 @@ const RequestQuote = () => {
               id="additionalDetails"
               rows={4}
               {...register("additionalDetails")}
-              className="block w-full p-2.5  bg-gray-800 text-white border border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-xl"
+              className="block w-full p-2.5  bg-white  text-black/70 border border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-xl"
               placeholder="Enter any specific requirements..."
             ></textarea>
           </div>
@@ -183,7 +183,7 @@ const RequestQuote = () => {
                   message: "Invalid email address",
                 },
               })}
-              className="block w-full p-2.5  bg-gray-800 text-white border border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-xl"
+              className="block w-full p-2.5  bg-white  text-black/70 border border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-xl"
               placeholder="yourname@example.com"
             />
             {errors.email && (
@@ -193,10 +193,10 @@ const RequestQuote = () => {
 
           <button
             type="submit"
-            className={`w-full py-3 px-4 font-medium  text-white rounded-xl ${
+            className={`w-full py-3 px-4 font-medium  text-black rounded-xl ${
               isLoading
                 ? "bg-gray-600 cursor-not-allowed"
-                : "bg-blue-600 hover:bg-blue-700"
+                : "bg-white/90 hover:bg-white/70"
             }`}
             disabled={isLoading}
           >

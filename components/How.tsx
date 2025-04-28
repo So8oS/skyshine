@@ -54,7 +54,7 @@ export default function HowItWorks() {
         </div>
 
         <div className="relative mt-12 lg:mt-20">
-          <div className="absolute inset-x-0 hidden xl:px-44 top-2 md:block md:px-20 lg:px-28">
+          <div className="absolute inset-x-0 hidden xl:px-52 top-2 md:block md:px-28 lg:px-40">
             <img
               alt=""
               loading="lazy"

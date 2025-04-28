@@ -1,7 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { PiDroneBold } from "react-icons/pi";
 import Link from "next/link";
 import { motion } from "motion/react";
 // import CustomDrawer from "./Drawer";
@@ -26,19 +26,19 @@ const Navbar = () => {
 
   return (
     <motion.nav
-      className={`px-4 lg:px-6 h-16 flex items-center justify-between mx-auto max-w-screen-2xl w-full relative sticky top-0 z-50 py-2 bg-background/60 backdrop-blur shadow-md transition-all duration-500 ${
-        isScrolled ? "bg-slate-900 bg-opacity-90 backdrop-blur-sm" : ""
+      className={`px-4 lg:px-6 h-16 flex items-center border-white/10 relative sticky top-0 z-50 py-2 bg-background/60 backdrop-blur shadow-md transition-all duration-500 ${
+        isScrolled ? "bg-black border-b  bg-opacity-90 backdrop-blur-sm" : ""
       }`}
       initial={{ opacity: 0, y: 0 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="flex items-center space-x-4">
+      <div className="flex items-center space-x-4 justify-between mx-auto max-w-screen-2xl w-full ">
         <Link href="/" className="flex items-center space-x-2 pr-4">
-          <PiDroneBold className="h-8 w-8 text-blue-400 animate-spin" />
-          <span className="font-bold text-2xl bg-gradient-to-r from-blue-400 to-purple-400 text-transparent bg-clip-text">
+          <img src="/skyshinelogowhite.png" alt="logo" className="h-8 w-8" />
+          {/* <span className="font-bold text-2xl bg-gradient-to-r from-blue-400 to-purple-400 text-transparent bg-clip-text">
             SkyShine
-          </span>
+          </span> */}
         </Link>
         {/* <ul className="hidden lg:flex gap-4 sm:gap-6">
           <Link
