@@ -13,7 +13,7 @@ export default function LandingPage() {
       <iframe
         src={
           process.env.NODE_ENV === "development"
-            ? "http://localhost:3002/"
+            ? "http://localhost:3000/"
             : "https://drone-scene-chi.vercel.app/"
         }
         className="w-full lg:h-[93dvh]  h-[75vh] 3xl:h-[95dvh] "

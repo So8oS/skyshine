@@ -18,7 +18,7 @@ export default function Footer() {
             <div className="flex items-center space-x-2">
               <div className="w-10 h-10 flex items-center justify-center">
                 <img
-                  src="/skyshinelogowhite.png"
+                  src="/skyshinelogo.png"
                   alt="SkyShine Logo"
                   className="w-full h-full object-contain"
                 />
