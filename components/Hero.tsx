@@ -6,7 +6,10 @@ import Link from "next/link";
 
 const Hero = () => {
   return (
-    <section className="flex items-center justify-center min-h-screen px-0 md:px-0 bg-black w-full">
+    <section
+      className="flex items-center justify-center min-h-screen px-0 md:px-0 bg-black w-full"
+      id="hero"
+    >
       <div className="w-full flex flex-col items-center justify-center text-center space-y-8 px-2">
         <motion.div
           className="space-y-4 w-full"
@@ -33,19 +36,7 @@ const Hero = () => {
             traditional methods.
           </motion.p>
         </motion.div>
-        <motion.div
-          className="flex flex-col items-center gap-3 min-[400px]:flex-row justify-center w-full"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-        >
-          <Link
-            href="#how"
-            className="inline-block rounded-lg border-none bg-blue-600 text-white font-inherit text-center text-sm shadow-lg w-full max-w-xs py-2 cursor-pointer hover:bg-blue-700"
-          >
-            Learn More
-          </Link>
-        </motion.div>
+
         <motion.div
           className="w-full  flex items-center justify-center"
           initial={{ opacity: 0, y: 20 }}

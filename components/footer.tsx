@@ -43,7 +43,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="/"
+                  href="#hero"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
                   Home
@@ -54,7 +54,7 @@ export default function Footer() {
                   href="#features"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
-                  Services
+                  Features
                 </Link>
               </li>
               <li>
@@ -110,12 +110,31 @@ export default function Footer() {
             <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
             <ul className="space-y-4">
               <li className="flex items-start">
-                <Mail className="h-5 w-5 text-white mr-2 mt-0.5" />
-                <span className="text-gray-400">info@skyshine.com</span>
+                <Link
+                  href="mailto:info@databridge.ae"
+                  className="hover:underline text-gray-400 flex "
+                >
+                  <Mail className="h-5 w-5 text-white mr-2 mt-0.5" />
+                  <span className="text-gray-400">info@databridge.ae</span>
+                </Link>
+              </li>
+              <li className="flex items-start">
+                <Link
+                  href="mailto:info@skyshine.ae"
+                  className="hover:underline text-gray-400 flex "
+                >
+                  <Mail className="h-5 w-5 text-white mr-2 mt-0.5" />
+                  <span className="text-gray-400">info@skyshine.ae</span>
+                </Link>
               </li>
               <li className="flex items-start">
                 <Phone className="h-5 w-5 text-white mr-2 mt-0.5" />
-                <span className="text-gray-400">+1 (555) 123-4567</span>
+                <Link
+                  href="tel:800DATA "
+                  className="hover:underline text-gray-400"
+                >
+                  800 DATA
+                </Link>
               </li>
             </ul>
           </div>
@@ -125,14 +144,14 @@ export default function Footer() {
           <p className="text-gray-500 text-sm">
             © {new Date().getFullYear()} SkyShine. All rights reserved.
           </p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
+          {/* <div className="flex space-x-6 mt-4 md:mt-0">
             <Link href="#" className="text-gray-500 hover:text-white text-sm">
               Privacy Policy
             </Link>
             <Link href="#" className="text-gray-500 hover:text-white text-sm">
               Terms of Service
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>

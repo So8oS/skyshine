@@ -26,7 +26,7 @@ const steps = [
 export default function HowItWorks() {
   return (
     <motion.div
-      id="how"
+      id="how-it-works"
       className="relative  py-10 sm:py-16 lg:py-24"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
