@@ -2,7 +2,6 @@
 import React from "react";
 import { motion } from "motion/react";
 // import DroneCanvas from "./droneModel";
-import Link from "next/link";
 
 const Hero = () => {
   return (
