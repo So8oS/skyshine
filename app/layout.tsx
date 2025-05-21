@@ -11,7 +11,7 @@ const roboto = Roboto({
 
 export const metadata: Metadata = {
   title: "SkyShine",
-  description: "make your building shine",
+  description: "Make your building shine",
 };
 
 export default function RootLayout({
