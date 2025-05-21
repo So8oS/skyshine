@@ -2,7 +2,7 @@ import Metadata from "next/types";
 import { Roboto } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-
+import { Toaster } from "@/components/ui/toaster";
 const roboto = Roboto({
   variable: "--font-roboto",
   subsets: ["latin"],
@@ -28,6 +28,7 @@ export default function RootLayout({
         <div className="min-h-screen  mx-auto max-w-screen-2xl w-full flex flex-col items-center justify-center ">
           {children}
         </div>
+        <Toaster />
       </body>
     </html>
   );

@@ -2,14 +2,19 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useToast } from "@/hooks/use-toast";
 import { motion } from "motion/react";
+import emailjs from "@emailjs/browser";
 
 interface QuoteFormData {
-  buildingName: string;
   floors: number;
-  windowCount: number;
   facadeMaterial: string;
   additionalDetails?: string;
   email: string;
+  phone: string;
+  message: string;
+  companyName: string;
+  city: string;
+  numberOfFloors: number;
+  phoneNumber: string;
 }
 
 const RequestQuote = () => {
@@ -24,9 +29,34 @@ const RequestQuote = () => {
 
   const onSubmit = async (data: QuoteFormData) => {
     setIsLoading(true);
+
     try {
-      // Placeholder for submission logic (e.g., API call or EmailJS)
-      console.log("Quote Request Data:", data);
+      const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+      const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+      if (!serviceID || !templateID || !publicKey) {
+        throw new Error("EmailJS configuration is missing.");
+      }
+
+      const messageContent = `CLIENT\nName: ${data.companyName}\nEmail: ${
+        data.email
+      }\nCity: ${data.city}\nNumber of Floors: ${
+        data.numberOfFloors
+      }\nFacade Material: ${data.facadeMaterial}\nAdditional Details: ${
+        data.additionalDetails || "None"
+      }\nPhone Number: ${data.phoneNumber}`;
+
+      await emailjs.send(
+        serviceID,
+        templateID,
+        {
+          from_name: data.companyName,
+          from_email: data.email,
+          message: messageContent,
+        },
+        publicKey
+      );
 
       toast({
         title: "Request Sent",
@@ -80,92 +110,26 @@ const RequestQuote = () => {
         >
           <div>
             <label
-              htmlFor="buildingName"
+              htmlFor="companyName"
               className="block mb-2 text-sm font-medium text-white text-left pl-1"
             >
-              Building Name:
+              Company Name:
             </label>
             <input
               type="text"
-              id="buildingName"
-              {...register("buildingName", {
-                required: "Building name is required",
+              id="companyName"
+              {...register("companyName", {
+                required: "Company name is required",
               })}
-              className="block w-full p-2.5  bg-white  text-black/70 border border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-xl"
-              placeholder="e.g., Empire State Building"
+              className="block w-full p-2.5 bg-white text-black/70 border border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-xl"
+              placeholder="Your Company"
             />
-            {errors.buildingName && (
+            {errors.companyName && (
               <p className="text-red-500 text-sm">
-                {errors.buildingName.message}
+                {errors.companyName.message}
               </p>
             )}
           </div>
-
-          <div>
-            <label
-              htmlFor="floors"
-              className="block mb-2 text-sm font-medium text-white text-left pl-1"
-            >
-              Number of Floors:
-            </label>
-            <input
-              type="number"
-              id="floors"
-              {...register("floors", {
-                required: "Number of floors is required",
-                min: { value: 1, message: "At least 1 floor is required" },
-              })}
-              className="block w-full p-2.5  bg-white  text-black/70 border border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-xl"
-              placeholder="e.g., 50"
-            />
-            {errors.floors && (
-              <p className="text-red-500 text-sm">{errors.floors.message}</p>
-            )}
-          </div>
-
-          <div>
-            <label
-              htmlFor="facadeMaterial"
-              className="block mb-2 text-sm font-medium text-white text-left pl-1"
-            >
-              Facade Material:
-            </label>
-            <select
-              id="facadeMaterial"
-              {...register("facadeMaterial", {
-                required: "Facade material is required",
-              })}
-              className="block w-full p-2.5  bg-white  text-black/70 border border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-xl cursor-pointer"
-            >
-              <option value="">Select Material</option>
-              <option value="glass">Glass</option>
-              <option value="concrete">Concrete</option>
-              <option value="metal">Metal</option>
-              <option value="other">Other</option>
-            </select>
-            {errors.facadeMaterial && (
-              <p className="text-red-500 text-sm">
-                {errors.facadeMaterial.message}
-              </p>
-            )}
-          </div>
-
-          <div>
-            <label
-              htmlFor="additionalDetails"
-              className="block mb-2 text-sm font-medium text-white text-left pl-1"
-            >
-              Additional Details (optional):
-            </label>
-            <textarea
-              id="additionalDetails"
-              rows={4}
-              {...register("additionalDetails")}
-              className="block w-full p-2.5  bg-white  text-black/70 border border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-xl"
-              placeholder="Enter any specific requirements..."
-            ></textarea>
-          </div>
-
           <div>
             <label
               htmlFor="email"
@@ -183,17 +147,120 @@ const RequestQuote = () => {
                   message: "Invalid email address",
                 },
               })}
-              className="block w-full p-2.5  bg-white  text-black/70 border border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-xl"
-              placeholder="yourname@example.com"
+              className="block w-full p-2.5 bg-white text-black/70 border border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-xl"
+              placeholder="example@example.com"
             />
             {errors.email && (
               <p className="text-red-500 text-sm">{errors.email.message}</p>
             )}
           </div>
+          <div>
+            <label
+              htmlFor="phoneNumber"
+              className="block mb-2 text-sm font-medium text-white text-left pl-1"
+            >
+              Phone Number:
+            </label>
+            <input
+              type="text"
+              id="phoneNumber"
+              {...register("phoneNumber", {
+                required: "Phone number is required",
+              })}
+              className="block w-full p-2.5 bg-white text-black/70 border border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-xl"
+              placeholder="+971 5X XXXX XXXX"
+            />
+            {errors.phoneNumber && (
+              <p className="text-red-500 text-sm">
+                {errors.phoneNumber.message}
+              </p>
+            )}
+          </div>
+          <div>
+            <label
+              htmlFor="city"
+              className="block mb-2 text-sm font-medium text-white text-left pl-1"
+            >
+              City:
+            </label>
+            <input
+              type="text"
+              id="city"
+              {...register("city", { required: "City is required" })}
+              className="block w-full p-2.5 bg-white text-black/70 border border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-xl"
+              placeholder="E.g. Dubai"
+            />
+            {errors.city && (
+              <p className="text-red-500 text-sm">{errors.city.message}</p>
+            )}
+          </div>
+          <div>
+            <label
+              htmlFor="numberOfFloors"
+              className="block mb-2 text-sm font-medium text-white text-left pl-1"
+            >
+              Number of Floors:
+            </label>
+            <input
+              type="number"
+              id="numberOfFloors"
+              {...register("numberOfFloors", {
+                required: "Number of floors is required",
+              })}
+              className="block w-full p-2.5 bg-white text-black/70 border border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-xl"
+              placeholder="E.g. 15"
+            />
+            {errors.numberOfFloors && (
+              <p className="text-red-500 text-sm">
+                {errors.numberOfFloors.message}
+              </p>
+            )}
+          </div>
+          <div>
+            <label
+              htmlFor="facadeMaterial"
+              className="block mb-2 text-sm font-medium text-white text-left pl-1"
+            >
+              Facade Material:
+            </label>
+            <select
+              id="facadeMaterial"
+              {...register("facadeMaterial", {
+                required: "Facade material is required",
+              })}
+              className="block w-full p-2.5 bg-white text-black/70 border border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-xl cursor-pointer"
+            >
+              <option value="">Select Material</option>
+              <option value="glass">Glass</option>
+              <option value="concrete">Concrete</option>
+              <option value="metal">Metal</option>
+              <option value="other">Other</option>
+            </select>
+            {errors.facadeMaterial && (
+              <p className="text-red-500 text-sm">
+                {errors.facadeMaterial.message}
+              </p>
+            )}
+          </div>
+          <div>
+            <label
+              htmlFor="additionalDetails"
+              className="block mb-2 text-sm font-medium text-white text-left pl-1"
+            >
+              Additional Details (optional):
+            </label>
+            <textarea
+              id="additionalDetails"
+              rows={4}
+              {...register("additionalDetails")}
+              className="block w-full p-2.5 bg-white text-black/70 border border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-xl"
+              placeholder="Additional details..."
+            ></textarea>
+          </div>
 
           <button
             type="submit"
-            className={`w-full py-3 px-4 font-medium  text-black rounded-xl ${
+            className={`w-full py-3 px-4 font-medium text-black rounded-xl ${
               isLoading
                 ? "bg-gray-600 cursor-not-allowed"
                 : "bg-white/90 hover:bg-white/70"
