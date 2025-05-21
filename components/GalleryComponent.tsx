@@ -1,108 +1,163 @@
+/* eslint-disable @next/next/no-img-element */
 import { motion } from "motion/react";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+  type CarouselApi,
+} from "@/components/ui/carousel"; // Adjust the import path as necessary
 
-const images = [
+const media = [
   {
-    src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg",
+    type: "image",
+    src: "dbdrone.jpg",
     alt: "Drone cleaning a high-rise window",
     caption: "High-rise Window Cleaning",
   },
   {
-    src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg",
-    alt: "Efficient solar panel cleaning",
-    caption: "Solar Panel Cleaning",
-  },
-  {
-    src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg",
-    alt: "Facade cleaning using advanced drones",
-    caption: "Facade Maintenance",
-  },
-  {
-    src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg",
-    alt: "Drone inspecting a wind turbine",
-    caption: "Wind Turbine Inspection",
-  },
-  {
-    src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg",
-    alt: "Drone cleaning a skyscraper",
-    caption: "Skyscraper Cleaning",
-  },
-  {
-    src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg",
-    alt: "Drone surveying a construction site",
-    caption: "Construction Site Survey",
-  },
-  {
-    src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-6.jpg",
-    alt: "Drone monitoring agricultural fields",
-    caption: "Agricultural Monitoring",
-  },
-  {
-    src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-7.jpg",
-    alt: "Drone capturing aerial view of a city",
-    caption: "Aerial City View",
+    type: "video",
+    src: "drone.mp4",
+    alt: "Window cleaning",
+    caption: "Window Cleaning",
   },
 ];
 
 const GalleryComponent = () => {
-  const [lightbox, setLightbox] = useState({ isOpen: false, image: null });
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [api, setApi] = useState<CarouselApi>();
+
+  // Set initial slide when modal opens
+  useEffect(() => {
+    if (api && isModalOpen) {
+      api.scrollTo(selectedIndex);
+    }
+  }, [api, isModalOpen, selectedIndex]);
+
+  // Add carousel navigation handlers
+  const handlePrevious = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    api?.scrollPrev();
+  };
+
+  const handleNext = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    api?.scrollNext();
+  };
 
   return (
     <motion.div
-      className="lg:py-28 py-16  "
+      className="lg:py-28 py-16"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
       <div className="text-center mb-10">
-        <h2 className=" text-3xl md:text-4xl lg:text-5xl tracking-tight font-extrabold text-center text-white">
-          Our Work
+        <h2 className="text-3xl md:text-4xl lg:text-5xl tracking-tight font-extrabold text-center text-white">
+          Gallery
         </h2>
-        <p className="pt-4 px-2 mb-8 lg:mb-16 font-light text-center text-gray-300 text-base md:text-lg lg:text-xl">
-          Explore the results of our cutting-edge drone cleaning services.
-        </p>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 px-4">
-        {images.map((image, index) => (
+      <div className="flex flex-wrap justify-center gap-4 px-2 sm:px-4">
+        {media.map((item, index) => (
           <motion.div
             key={index}
-            className="relative group cursor-pointer"
-            // @ts-expect-error: Ignoring type error for demonstration purposes
-            onClick={() => setLightbox({ isOpen: true, image: image })}
+            className="relative group cursor-pointer w-full sm:w-1/2 md:w-1/3"
+            onClick={() => {
+              setSelectedIndex(index);
+              setIsModalOpen(true);
+            }}
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
           >
-            <img
-              className="h-auto max-w-full rounded-lg transition-transform duration-300"
-              src={image.src}
-              alt={image.alt}
-            />
-            <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">
-              <p className="text-white text-sm md:text-lg">{image.caption}</p>
+            {item.type === "image" ? (
+              <img
+                className="h-64 sm:h-80 md:h-96 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out transform hover:scale-105"
+                src={item.src}
+                alt={item.alt}
+              />
+            ) : (
+              <div className="relative">
+                <video
+                  className="h-64 sm:h-80 md:h-96 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out transform hover:scale-105"
+                  src={item.src}
+                />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <button className="bg-white p-2 rounded-full">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      className="w-6 h-6 text-black"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M14.752 11.168l-6.518-3.759A1 1 0 007 8.25v7.5a1 1 0 001.234.97l6.518-3.759a1 1 0 000-1.732z"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            )}
+            <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg p-4">
+              <p className="text-white text-xs sm:text-sm md:text-lg font-semibold">
+                {item.caption}
+              </p>
             </div>
           </motion.div>
         ))}
       </div>
 
-      {/* Lightbox Modal */}
-      {lightbox.isOpen && (
+      {/* Modal with Carousel */}
+      {isModalOpen && (
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75"
-          onClick={() => setLightbox({ isOpen: false, image: null })}
+          onClick={(e) => {
+            // Only close if clicking on backdrop (not carousel content)
+            if (e.target === e.currentTarget) {
+              setIsModalOpen(false);
+            }
+          }}
         >
-          {lightbox.image && (
-            <motion.img
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, ease: "easeInOut" }}
-              className="max-w-full max-h-full rounded-lg"
-              src={(lightbox.image as { src: string }).src}
-              alt={(lightbox.image as { alt: string }).alt}
-            />
-          )}
+          <Carousel setApi={setApi} opts={{ startIndex: selectedIndex }}>
+            <CarouselContent>
+              {media.map((item, index) => (
+                <CarouselItem
+                  key={index}
+                  className="flex justify-center items-center"
+                >
+                  {item.type === "image" ? (
+                    <img
+                      className="h-auto w-96 rounded-lg"
+                      src={item.src}
+                      alt={item.alt}
+                    />
+                  ) : (
+                    <video
+                      className="h-auto w-96 rounded-lg"
+                      src={item.src}
+                      controls
+                    />
+                  )}
+                  <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">
+                    <p className="text-white text-sm md:text-lg">
+                      {item.caption}
+                    </p>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious onClick={handlePrevious} />
+            <CarouselNext onClick={handleNext} />
+          </Carousel>
         </motion.div>
       )}
     </motion.div>

@@ -7,6 +7,7 @@ import RequestQuote from "@/components/RequestQuote";
 // import GalleryComponent from "@/components/GalleryComponent";
 import Hero from "@/components/Hero";
 import Footer from "@/components/footer";
+import GalleryComponent from "@/components/GalleryComponent";
 export default function LandingPage() {
   return (
     <main className="w-full  ">
@@ -21,7 +22,7 @@ export default function LandingPage() {
       <Hero />
       <Features />
       <HowItWorks />
-      {/* <GalleryComponent /> */}
+      <GalleryComponent />
       {/* <BlogSection /> */}
       <RequestQuote />
       <Footer />

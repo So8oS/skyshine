@@ -1,13 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
-import {
-  Facebook,
-  Twitter,
-  Instagram,
-  Linkedin,
-  Mail,
-  Phone,
-} from "lucide-react";
+import { Instagram, Linkedin, Mail, Phone } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -31,25 +24,13 @@ export default function Footer() {
             </p>
             <div className="flex space-x-4">
               <Link
-                href="#"
-                className="text-gray-400 hover:text-white transition-colors"
-              >
-                <Facebook className="h-5 w-5" />
-              </Link>
-              <Link
-                href="#"
-                className="text-gray-400 hover:text-white transition-colors"
-              >
-                <Twitter className="h-5 w-5" />
-              </Link>
-              <Link
-                href="#"
+                href="https://www.instagram.com/skyshine_ae?igsh=MWtuNDh2Z2hxcThtZg=="
                 className="text-gray-400 hover:text-white transition-colors"
               >
                 <Instagram className="h-5 w-5" />
               </Link>
               <Link
-                href="#"
+                href="https://www.linkedin.com/company/databridgeuae"
                 className="text-gray-400 hover:text-white transition-colors"
               >
                 <Linkedin className="h-5 w-5" />
@@ -120,14 +101,6 @@ export default function Footer() {
                   className="text-gray-400 hover:text-white transition-colors"
                 >
                   Roof Cleaning
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Building Inspection
                 </Link>
               </li>
             </ul>
