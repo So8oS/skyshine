@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "motion/react";
+import Scene2 from "./3d/Scene-2";
 // import DroneCanvas from "./droneModel";
 
 const Hero = () => {
@@ -42,15 +43,9 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.8 }}
         >
-          <iframe
-            src={
-              process.env.NODE_ENV === "development"
-                ? "http://localhost:3000/showcase-2"
-                : "https://drone-scene-chi.vercel.app/showcase-2  "
-            }
-            className="w-full h-[45vh] xl:h-[65vh] "
-            allowFullScreen
-          ></iframe>
+          <div className="w-full h-[45vh] xl:h-[65vh] ">
+            <Scene2 />
+          </div>
         </motion.div>
       </div>
     </section>
