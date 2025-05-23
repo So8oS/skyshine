@@ -1,4 +1,3 @@
-import Metadata from "next/types";
 import { Roboto } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
@@ -8,8 +7,9 @@ const roboto = Roboto({
   subsets: ["latin"],
   weight: ["400", "700"],
 });
+import { Analytics } from "@vercel/analytics/next";
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "SkyShine",
   description: "Make your building shine",
 };
@@ -29,6 +29,7 @@ export default function RootLayout({
           {children}
         </div>
         <Toaster />
+        <Analytics />
       </body>
     </html>
   );
