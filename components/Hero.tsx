@@ -2,9 +2,15 @@
 import React from "react";
 import { motion } from "motion/react";
 import Scene2 from "./3d/Scene-2";
+import { useInView } from "react-intersection-observer";
 // import DroneCanvas from "./droneModel";
 
 const Hero = () => {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    rootMargin: "-50px 0px",
+  });
+
   return (
     <section
       className="flex items-center justify-center min-h-screen px-0 md:px-0 bg-black w-full"
@@ -38,14 +44,17 @@ const Hero = () => {
         </motion.div>
 
         <motion.div
+          ref={ref}
           className="w-full  flex items-center justify-center"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.8 }}
         >
-          <div className="w-full h-[45vh] xl:h-[65vh] ">
-            <Scene2 />
-          </div>
+          {inView && (
+            <div className="w-full h-[45vh] xl:h-[65vh] ">
+              <Scene2 />
+            </div>
+          )}
         </motion.div>
       </div>
     </section>

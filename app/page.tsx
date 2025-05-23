@@ -11,6 +11,7 @@ import { useProgress } from "@react-three/drei";
 import { PiDroneBold } from "react-icons/pi";
 import localFont from "next/font/local";
 import { motion } from "motion/react";
+import { useInView } from "react-intersection-observer";
 
 const font = localFont({
   src: "../app/fonts/PressStart2P-Regular.ttf",
@@ -19,10 +20,18 @@ const font = localFont({
 
 export default function LandingPage() {
   const { progress } = useProgress();
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    rootMargin: "-50px 0px",
+  });
+
   return (
     <main className="w-full mx-auto max-w-screen-2xl ">
-      <div className="relative w-full lg:h-[93dvh] h-[75vh] 3xl:h-[95dvh] self-center flex justify-center mx-auto max-w-screen-2xl no-select">
-        {progress < 100 && (
+      <div
+        ref={ref}
+        className="relative w-full lg:h-[93dvh] h-[75vh] 3xl:h-[95dvh] self-center flex justify-center mx-auto max-w-screen-2xl no-select"
+      >
+        {progress < 100 && inView && (
           <div className="absolute inset-0 flex justify-center items-center  bg-black">
             <div className="flex flex-col items-center gap-2">
               <PiDroneBold className="text-white text-4xl animate-spin" />
@@ -36,7 +45,7 @@ export default function LandingPage() {
           </div>
         )}
 
-        {progress === 100 && (
+        {inView && progress === 100 && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
