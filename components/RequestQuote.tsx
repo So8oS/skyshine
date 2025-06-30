@@ -54,6 +54,7 @@ const RequestQuote = () => {
           from_name: data.companyName,
           from_email: data.email,
           message: messageContent,
+          project_name: "Skyshine",
         },
         publicKey
       );
