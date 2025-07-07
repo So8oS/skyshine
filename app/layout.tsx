@@ -12,17 +12,18 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: {
-    default: "SkyShine | Make your building shine",
+    default: "SkyShine",
     template: "%s - SkyShine",
   },
-  description: "SkyShine - make your building shine.",
+  description:
+    "Experience the future of building maintenance with our advanced drone cleaning technology. Safer, faster, and more efficient than traditional methods.",
   keywords:
     "drone cleaning, building facade cleaning, high-rise window cleaning, drone maintenance, SkyShine UAE, automated cleaning, drone technology, building maintenance, exterior cleaning, solar panel cleaning, roof cleaning, drone services",
   twitter: {
     card: "summary_large_image",
   },
   openGraph: {
-    title: "SkyShine | Make your building shine",
+    title: "SkyShine",
     description:
       "Drone cleaning services for high-rise buildings, solar panels, and more.",
     images: ["./opengraph-image.png"],
