@@ -8,7 +8,6 @@ import { useInView } from "react-intersection-observer";
 const Hero = () => {
   const { ref, inView } = useInView({
     triggerOnce: true,
-    rootMargin: "-50px 0px",
   });
 
   return (
