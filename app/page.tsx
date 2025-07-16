@@ -9,6 +9,7 @@ import GalleryComponent from "@/components/GalleryComponent";
 import InteractiveScene from "@/components/3d/InteractiveScene";
 import { useProgress } from "@react-three/drei";
 import { PiDroneBold } from "react-icons/pi";
+import { FaChevronDown } from "react-icons/fa";
 import localFont from "next/font/local";
 import { motion } from "motion/react";
 import { useInView } from "react-intersection-observer";
@@ -24,6 +25,13 @@ export default function LandingPage() {
     triggerOnce: true,
     rootMargin: "-50px 0px",
   });
+
+  const scrollToHero = () => {
+    const heroElement = document.getElementById("hero");
+    if (heroElement) {
+      heroElement.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <main className="w-full mx-auto max-w-screen-2xl ">
@@ -50,9 +58,22 @@ export default function LandingPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.5, delay: 0.5 }}
-            className="h-full w-full"
+            className="h-full w-full relative flex flex-col items-center justify-center"
           >
             <InteractiveScene />
+
+            {/* Scroll to Hero button */}
+            <motion.button
+              onClick={scrollToHero}
+              className="absolute bottom-8 left-[%50] transform -translate-x-1/2 bg-black/30 backdrop-blur-sm border border-white/20 rounded-full p-3 text-white hover:bg-white/20 transition-all duration-300 hover:scale-110 z-10"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 2 }}
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <FaChevronDown className="text-lg animate-[bounce_2s_infinite]" />
+            </motion.button>
           </motion.div>
         )}
       </div>
