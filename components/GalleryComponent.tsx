@@ -13,15 +13,21 @@ import {
 const media = [
   {
     type: "image",
-    src: "dbdrone.jpg",
-    alt: "Drone cleaning a high-rise window",
-    caption: "High-rise Window Cleaning",
+    src: "drone2.jpg",
+    alt: "drone",
+    caption: "",
+  },
+    {
+    type: "image",
+    src: "drone3.mp4",
+    alt: "drone",
+    caption: "",
   },
   {
     type: "video",
     src: "drone.mp4",
-    alt: "Window cleaning",
-    caption: "Window Cleaning",
+    alt: "drone",
+    caption: "",
   },
 ];
 
