@@ -17,8 +17,8 @@ const media = [
     alt: "drone",
     caption: "",
   },
-    {
-    type: "image",
+  {
+    type: "video",
     src: "drone3.mp4",
     alt: "drone",
     caption: "",
