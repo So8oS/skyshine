@@ -88,6 +88,28 @@ export default function HowItWorks() {
             ))}
           </div>
         </div>
+
+        {/* GCAA Logo Section */}
+        <motion.div
+          className="mt-20 lg:mt-40 flex flex-col items-center justify-center gap-3"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.8 }}
+          viewport={{ once: true }}
+        >
+ <motion.h2
+            className="text-4xl text-white font-extrabold mx-auto md:text-6xl lg:text-5xl"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+             Authorized by
+          </motion.h2>          <img
+            src="/gcaa.png"
+            alt="General Civil Aviation Authority"
+            className="h-28 md:h-36 mt-12 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity"
+          />
+        </motion.div>
       </div>
 
       <div
