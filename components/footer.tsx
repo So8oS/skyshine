@@ -43,7 +43,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="#hero"
+                  href="/#hero"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
                   Home
@@ -51,7 +51,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#features"
+                  href="/#features"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
                   Features
@@ -59,7 +59,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#how-it-works"
+                  href="/#how-it-works"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
                   How It Works
@@ -144,14 +144,20 @@ export default function Footer() {
           <p className="text-gray-500 text-sm">
             © {new Date().getFullYear()} SkyShine. All rights reserved.
           </p>
-          {/* <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link href="#" className="text-gray-500 hover:text-white text-sm">
+          <div className="flex space-x-6 mt-4 md:mt-0">
+            <Link
+              href="/privacy-policy"
+              className="text-gray-500 hover:text-white text-sm"
+            >
               Privacy Policy
             </Link>
-            <Link href="#" className="text-gray-500 hover:text-white text-sm">
-              Terms of Service
+            <Link
+              href="/terms-and-conditions"
+              className="text-gray-500 hover:text-white text-sm"
+            >
+              Terms & Conditions
             </Link>
-          </div> */}
+          </div>
         </div>
       </div>
     </footer>
