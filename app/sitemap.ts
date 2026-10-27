@@ -8,5 +8,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: "https://www.skyshine.ae",
       lastModified: currentDate,
     },
+    {
+      url: "https://www.skyshine.ae/privacy-policy",
+      lastModified: currentDate,
+    },
+    {
+      url: "https://www.skyshine.ae/terms-and-conditions",
+      lastModified: currentDate,
+    },
   ];
 }
