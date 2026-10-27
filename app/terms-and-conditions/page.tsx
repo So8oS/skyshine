@@ -216,11 +216,17 @@ export default function TermsAndConditionsPage() {
       <LegalSection heading="17. Contact">
         <p>
           Questions about these Terms can be sent to{" "}
-          <Link
+          {/* <Link
             href="mailto:info@skyshine.ae"
             className="text-white hover:underline"
           >
             info@skyshine.ae
+          </Link> */}
+          <Link
+            href="mailto:info@databridge.ae"
+            className="text-white hover:underline"
+          >
+            info@databridge.ae
           </Link>{" "}
           or{" "}
           <Link href="tel:800DATA" className="text-white hover:underline">

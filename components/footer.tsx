@@ -118,7 +118,7 @@ export default function Footer() {
                   <span className="text-gray-400">info@databridge.ae</span>
                 </Link>
               </li>
-              <li className="flex items-start">
+              {/* <li className="flex items-start">
                 <Link
                   href="mailto:info@skyshine.ae"
                   className="hover:underline text-gray-400 flex "
@@ -126,7 +126,7 @@ export default function Footer() {
                   <Mail className="h-5 w-5 text-white mr-2 mt-0.5" />
                   <span className="text-gray-400">info@skyshine.ae</span>
                 </Link>
-              </li>
+              </li> */}
               <li className="flex items-start">
                 <Phone className="h-5 w-5 text-white mr-2 mt-0.5" />
                 <Link

@@ -29,11 +29,17 @@ export default function PrivacyPolicyPage() {
         </p>
         <p>
           If you have any questions about this policy, contact us at{" "}
-          <Link
+          {/* <Link
             href="mailto:info@skyshine.ae"
             className="text-white hover:underline"
           >
             info@skyshine.ae
+          </Link> */}
+          <Link
+            href="mailto:info@databridge.ae"
+            className="text-white hover:underline"
+          >
+            info@databridge.ae
           </Link>
           .
         </p>
@@ -173,11 +179,17 @@ export default function PrivacyPolicyPage() {
         />
         <p>
           To make a request, email{" "}
-          <Link
+          {/* <Link
             href="mailto:info@skyshine.ae"
             className="text-white hover:underline"
           >
             info@skyshine.ae
+          </Link> */}
+          <Link
+            href="mailto:info@databridge.ae"
+            className="text-white hover:underline"
+          >
+            info@databridge.ae
           </Link>
           . We may need to verify your identity before acting on it, and we will
           respond within the time required by applicable law.
@@ -214,13 +226,13 @@ export default function PrivacyPolicyPage() {
           SkyShine
           <br />
           Email:{" "}
-          <Link
+          {/* <Link
             href="mailto:info@skyshine.ae"
             className="text-white hover:underline"
           >
             info@skyshine.ae
           </Link>{" "}
-          or{" "}
+          or{" "} */}
           <Link
             href="mailto:info@databridge.ae"
             className="text-white hover:underline"
